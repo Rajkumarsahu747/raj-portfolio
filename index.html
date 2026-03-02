@@ -13,26 +13,36 @@
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
 
-    <!-- Logo + Profile Image -->
+    <!-- Logo -->
     <div class="logo">
         <img src="profile.jpg" class="nav-profile-pic">
         <span>Raj Kumar...</span>
     </div>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
+    <!-- Hamburger Icon (NEW) -->
+    <div class="hamburger" id="hamburger">
+        ☰
     </div>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <!-- Menu Wrapper (NEW) -->
+    <div class="nav-menu" id="navMenu">
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
 
 </nav>
 
@@ -184,7 +194,20 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
     }
 });
 </script>
-
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+    
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        });
+    });
+    </script>
 </body>
 </html>
 
