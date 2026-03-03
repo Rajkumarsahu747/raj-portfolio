@@ -36,6 +36,7 @@ body {
     z-index: 1000;
 }
 
+/* Logo + Profile */
 .logo {
     display: flex;
     align-items: center;
@@ -45,6 +46,7 @@ body {
     color: #ffcc00;
 }
 
+/* Profile Image */
 .nav-profile-pic {
     width: 45px;
     height: 45px;
@@ -55,6 +57,14 @@ body {
     box-shadow: 0 0 10px #8000ff;
 }
 
+/* Menu Wrapper (Search + Links) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -70,24 +80,21 @@ body {
     font-weight: 500;
 }
 
-/* Animated Underline */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    background: #ffcc00;
-    transition: 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
 .nav-links a:hover {
     color: #ffcc00;
+}
+
+/* Search Box */
+.search-container input {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+    display: none;
 }
 
 /* ===== HERO ===== */
@@ -427,3 +434,4 @@ footer {
         padding: 8px;
     }
 }
+
