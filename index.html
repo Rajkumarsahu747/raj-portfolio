@@ -19,12 +19,11 @@
     </div>
 
     <!-- Hamburger -->
-    <div class="hamburger" onclick="toggleMenu()">
-        ☰
-    </div>
+   <div id="hamburger" class="hamburger">
+    ☰
+</div>
 
-    <!-- Menu Wrapper -->
-    <div class="nav-menu">
+<div id="navMenu" class="nav-menu">
 
         <!-- Search -->
         <div class="search-container">
@@ -220,26 +219,27 @@ document.addEventListener("click", (e) => {
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 
-/* Toggle menu on hamburger click */
-hamburger.addEventListener("click", (e) => {
+// Toggle menu
+hamburger.addEventListener("click", function (e) {
     e.stopPropagation();
     navMenu.classList.toggle("active");
 });
 
-/* Close menu when clicking any link */
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
-});
-
-/* Close menu when clicking outside */
-document.addEventListener("click", (e) => {
+// Close when clicking outside
+document.addEventListener("click", function (e) {
     if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
         navMenu.classList.remove("active");
     }
 });
+
+// Close when clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", function () {
+        navMenu.classList.remove("active");
+    });
+});
 </script>
 </body>
 </html>
+
 
