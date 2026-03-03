@@ -380,19 +380,12 @@ footer {
 /* ================= MOBILE VERSION ================= */
 @media (max-width: 768px) {
 
-    /* Keep navbar horizontal */
-    .navbar {
-        padding: 15px 20px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Show hamburger */
     .hamburger {
         display: block;
+        font-size: 28px;
+        cursor: pointer;
     }
 
-    /* Hide menu by default */
     .nav-menu {
         position: absolute;
         top: 70px;
@@ -406,17 +399,16 @@ footer {
         display: none;
     }
 
-    /* When active */
     .nav-menu.active {
         display: flex;
     }
 
-    /* Make nav links vertical */
     .nav-links {
         flex-direction: column;
         gap: 15px;
     }
 
+}
     /* Resize profile image */
     .nav-profile-pic {
         width: 35px;
@@ -434,4 +426,5 @@ footer {
         padding: 8px;
     }
 }
+
 
