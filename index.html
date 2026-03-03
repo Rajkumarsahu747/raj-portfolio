@@ -216,11 +216,30 @@ document.addEventListener("click", (e) => {
     }
 });
 </script>
-    
 <script>
-function toggleMenu() {
-    document.querySelector(".nav-menu").classList.toggle("active");
-}
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+/* Toggle menu on hamburger click */
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle("active");
+});
+
+/* Close menu when clicking any link */
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
+
+/* Close menu when clicking outside */
+document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove("active");
+    }
+});
 </script>
 </body>
 </html>
+
