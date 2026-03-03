@@ -219,12 +219,27 @@ document.addEventListener("click", (e) => {
 </script>
     
 <script>
-function toggleMenu() {
-    document.querySelector(".nav-menu").classList.toggle("active");
-}
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+/* Toggle menu when hamburger clicked */
+hamburger.addEventListener("click", function (e) {
+    e.stopPropagation();   // prevent immediate closing
+    navMenu.classList.toggle("active");
+});
+
+/* Close menu when clicking anywhere outside */
+document.addEventListener("click", function (e) {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove("active");
+    }
+});
+
 </script>
 </body>
 </html>
+
 
 
 
