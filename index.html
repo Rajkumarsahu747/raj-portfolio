@@ -198,12 +198,29 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 
-hamburger.addEventListener("click", () => {
+/* Toggle menu on hamburger click */
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent click from bubbling
     navMenu.classList.toggle("active");
+});
+
+/* Close menu when clicking any link */
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
+
+/* Close menu when clicking outside */
+document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove("active");
+    }
 });
 </script>
 </body>
 </html>
+
 
 
 
