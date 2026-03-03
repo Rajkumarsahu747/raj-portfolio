@@ -301,29 +301,6 @@ footer {
     margin-top: 40px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width: 768px) {
-
-    /* Navbar */
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px 20px;
-        gap: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .nav-profile-pic {
-        width: 35px;
-        height: 35px;
-    }
-
     /* Hero */
     .hero {
         padding-top: 120px;
@@ -394,8 +371,14 @@ footer {
 }
 
 /* ================= MOBILE VERSION ================= */
-
 @media (max-width: 768px) {
+
+    /* Keep navbar horizontal */
+    .navbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     /* Show hamburger */
     .hamburger {
@@ -416,7 +399,7 @@ footer {
         display: none;
     }
 
-    /* When active (JS will add this class) */
+    /* When active */
     .nav-menu.active {
         display: flex;
     }
@@ -427,7 +410,13 @@ footer {
         gap: 15px;
     }
 
-    /* Center search bar */
+    /* Resize profile image */
+    .nav-profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Search full width */
     .search-container {
         width: 90%;
         text-align: center;
