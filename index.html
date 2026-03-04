@@ -206,31 +206,32 @@ document.addEventListener("click", (e) => {
 });
 </script>
 <script>
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", function () {
 
-// Toggle menu
-hamburger.addEventListener("click", function (e) {
-    e.stopPropagation();
-    navMenu.classList.toggle("active");
-});
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
 
-// Close when clicking outside
-document.addEventListener("click", function (e) {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        navMenu.classList.remove("active");
+    if (!hamburger || !navMenu) {
+        console.log("Hamburger or NavMenu not found!");
+        return;
     }
-});
 
-// Close when clicking a link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
+    hamburger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle("active");
     });
+
+    document.addEventListener("click", function (e) {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            navMenu.classList.remove("active");
+        }
+    });
+
 });
 </script>
 </body>
 </html>
+
 
 
 
