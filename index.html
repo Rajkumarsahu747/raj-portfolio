@@ -153,84 +153,10 @@
 <footer>
    <p>© 2026 My Portfolio</p>
 </footer>
-
-<script>
-document.getElementById("searchInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-
-        let value = this.value.toLowerCase().trim();
-
-        const sections = {
-            home: "#home",
-            about: "#about",
-            skills: "#skills",
-            experience: "#experience",
-            projects: "#projects",
-            contact: "#contact"
-        };
-
-        if (sections[value]) {
-            document.querySelector(sections[value]).scrollIntoView({
-                behavior: "smooth"
-            });
-        } else {
-            alert("Section not found!");
-        }
-
-        this.value = "";
-    }
-});
-</script>
-<script>
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-
-/* Toggle menu on hamburger click */
-hamburger.addEventListener("click", (e) => {
-    e.stopPropagation(); // Prevent click from bubbling
-    navMenu.classList.toggle("active");
-});
-
-/* Close menu when clicking any link */
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
-});
-
-/* Close menu when clicking outside */
-document.addEventListener("click", (e) => {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        navMenu.classList.remove("active");
-    }
-});
-</script>
-<script>
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-
-// Toggle menu
-hamburger.addEventListener("click", function (e) {
-    e.stopPropagation();
-    navMenu.classList.toggle("active");
-});
-
-// Close when clicking outside
-document.addEventListener("click", function (e) {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        navMenu.classList.remove("active");
-    }
-});
-
-// Close when clicking a link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
-    });
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
+
 
 
 
