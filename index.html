@@ -9,37 +9,33 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
 
-    <!-- Logo + Profile -->
+    <!-- Logo -->
     <div class="logo">
         <img src="profile.jpg" class="nav-profile-pic">
         <span>Raj Kumar</span>
     </div>
 
+    <!-- Search Bar (NOW OUTSIDE) -->
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+    </div>
+
     <!-- Hamburger -->
-   <div id="hamburger" class="hamburger">
-    ☰
-</div>
+    <div id="hamburger" class="hamburger">
+        ☰
+    </div>
 
-<div id="navMenu" class="nav-menu">
-
-        <!-- Search -->
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
-        </div>
-
-        <!-- Links -->
+    <!-- Only Links Inside Menu -->
+    <div id="navMenu" class="nav-menu">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
     </div>
 
 </nav>
@@ -241,5 +237,6 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 </script>
 </body>
 </html>
+
 
 
