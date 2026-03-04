@@ -46,13 +46,14 @@ body {
     color: #ffcc00;
 }
 
-/* Profile */
+/* NAVBAR PROFILE IMAGE FIX */
 .nav-profile-pic {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    display: block;
 }
-
 /* Search */
 .search-container {
     flex: 0 0 auto;
@@ -424,6 +425,7 @@ footer {
         width: 140px;
     }
 }
+
 
 
 
