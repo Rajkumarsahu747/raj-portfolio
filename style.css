@@ -48,11 +48,14 @@ body {
 
 /* NAVBAR PROFILE IMAGE FIX */
 .nav-profile-pic {
-    width: 45px !important;
-    height: 45px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
+    width: 45px
+    height: 45px
+    border-radius: 50%
+    object-fit: cover 
     display: block;
+    object-position: top;
+    border: 2px solid #8000ff;
+    box-shadow: 0 0 10px #8000ff;
 }
 /* Search */
 .search-container {
@@ -425,6 +428,7 @@ footer {
         width: 140px;
     }
 }
+
 
 
 
