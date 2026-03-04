@@ -1,25 +1,40 @@
+
+
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
 }
 
+/* ===== BODY BACKGROUND ===== */
 body {
     color: white;
-    background: #000;
+    background: linear-gradient(-45deg, #000000, #1a001f, #3b0066, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
 }
 
-/* NAVBAR */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    justify-content: space-between;
+    padding: 20px 50px;
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 
 /* Logo */
@@ -27,49 +42,60 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #ffcc00;
     font-weight: bold;
+    font-size: 18px;
+    color: #ffcc00;
 }
 
+/* Profile Image */
 .nav-profile-pic {
     width: 45px;
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top;
+    border: 2px solid #8000ff;
+    box-shadow: 0 0 10px #8000ff;
+}
+/* Search */
+.search-container {
+    flex: 0 0 auto;
 }
 
-/* Search */
 .search-container input {
-    width: 200px;
-    padding: 6px 12px;
+    width: 250px;
+    padding: 8px 15px;
     border-radius: 20px;
     border: none;
     outline: none;
 }
 
-/* Hamburger */
+/* Hamburger ALWAYS visible */
 .hamburger {
+    display: block;   /* 🔥 important */
     font-size: 28px;
     cursor: pointer;
     color: #ffcc00;
 }
 
-/* Menu */
+/* Menu hidden by default */
 .nav-menu {
     position: absolute;
-    top: 70px;
-    right: 40px;
-    width: 220px;
-    background: #111;
+    top: 80px;
+    right: 0;
+    width: 250px;
+    background: rgba(0,0,0,0.95);
     padding: 20px;
-    border-radius: 10px;
     display: none;
+    border-radius: 10px;
 }
 
+/* Show menu when active */
 .nav-menu.active {
     display: block;
 }
 
+/* Links style */
 .nav-links {
     list-style: none;
     display: flex;
@@ -78,23 +104,332 @@ body {
 }
 
 .nav-links a {
-    color: white;
     text-decoration: none;
+    color: white;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
     color: #ffcc00;
 }
-
-/* Hero */
+/* ===== HERO ===== */
 .hero {
-    padding-top: 150px;
     text-align: center;
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+.hero-name {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0 0 20px #8000ff;
+}
+
+.typing-text {
+    color: #ffcc00;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* Profile Image */
+.profile-container {
+    margin: 30px 0;
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
+    border: 5px solid #8000ff;
     object-fit: cover;
+    object-position: top;
+    transition: 0.4s;
 }
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Download Button */
+.download-btn {
+    padding: 14px 30px;
+    background: #ffcc00;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 0 20px #ffcc00;
+}
+
+.download-btn:hover {
+    transform: scale(1.08);
+}
+
+/* ===== SECTION ===== */
+.section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #ffcc00;
+}
+
+/* ===== ABOUT ===== */
+.about-text {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ===== SKILLS ===== */
+.skill {
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.skill p {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.progress {
+    width: 100%;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #8000ff;
+}
+
+/* Skill Levels */
+.html { width: 90%; background: #ffcc00; }
+.css { width: 85%; background: #8000ff; }
+.javascript { width: 75%; background: #ffcc00; }
+.aiml { width: 70%; background: #8000ff; }
+.python { width: 80%; background: #ffcc00; }
+
+/* ===== PROJECTS ===== */
+.project-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #8000ff;
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: #8000ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-small:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #8000ff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #8000ff;
+}
+
+.timeline-content h3 {
+    margin-bottom: 5px;
+}
+
+.timeline-content span {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* ===== CONTACT ===== */
+#contact p {
+    margin: 10px 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    margin-top: 40px;
+}
+
+    /* Hero */
+    .hero {
+        padding-top: 120px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-name {
+        font-size: 28px;
+    }
+
+    .typing-text {
+        font-size: 16px;
+    }
+
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 70px 20px;
+    }
+
+    /* Skills */
+    .skill {
+        max-width: 100%;
+    }
+
+    /* Timeline Fix */
+    .timeline::after {
+        left: 15px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0%;
+    }
+
+    /* Project Cards */
+    .project-card {
+        padding: 20px;
+        margin: 15px 10px;
+    }
+
+/* ===== FINAL NAV FIX ===== */
+
+/* Hamburger always visible */
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    color: #ffcc00;
+    display: block;
+}
+
+/* Menu hidden by default */
+.nav-menu {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 250px;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* Show when active */
+.nav-menu.active {
+    display: block;
+}
+
+/* Vertical links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        right: 20px;
+        top: 70px;
+        width: 90%;
+    }
+
+    .search-container input {
+        width: 140px;
+    }
+}
+
+
+
+
+
+
+
