@@ -46,13 +46,12 @@ body {
     color: #ffcc00;
 }
 
-/* NAVBAR PROFILE IMAGE FIX */
+/* Profile Image */
 .nav-profile-pic {
-    width: 45px
-    height: 45px
-    border-radius: 50%
-    object-fit: cover 
-    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
     object-position: top;
     border: 2px solid #8000ff;
     box-shadow: 0 0 10px #8000ff;
@@ -428,6 +427,7 @@ footer {
         width: 140px;
     }
 }
+
 
 
 
