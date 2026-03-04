@@ -59,8 +59,17 @@ body {
 
 /* CENTER SEARCH */
 .search-container {
-    flex: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input {
+    width: 300px;     /* Fixed width */
+    max-width: 100%;  /* Prevent overflow */
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
 }
 
 .search-container input {
@@ -427,6 +436,7 @@ footer {
         padding: 8px;
     }
 }
+
 
 
 
