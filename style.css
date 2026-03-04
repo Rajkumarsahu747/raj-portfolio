@@ -372,72 +372,58 @@ footer {
 
 }
 
-/* ================= HAMBURGER STYLE ================= */
+/* ===== FINAL NAV FIX ===== */
 
+/* Hamburger always visible */
 .hamburger {
-    display: none;
     font-size: 28px;
     cursor: pointer;
     color: #ffcc00;
+    display: block;
 }
 
-/* Wrap search + links in one row (Desktop) */
+/* Menu hidden by default */
 .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 250px;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
 }
 
-/* ================= MOBILE VERSION ================= */
+/* Show when active */
+.nav-menu.active {
+    display: block;
+}
+
+/* Vertical links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Mobile Fix */
 @media (max-width: 768px) {
 
-    .hamburger {
-        display: block;
-        font-size: 28px;
-        cursor: pointer;
+    .navbar {
+        padding: 15px 20px;
     }
 
     .nav-menu {
-        position: absolute;
+        right: 20px;
         top: 70px;
-        right: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.95);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 20px;
-        display: none;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-}
-    /* Resize profile image */
-    .nav-profile-pic {
-        width: 35px;
-        height: 35px;
-    }
-
-    /* Search full width */
-    .search-container {
         width: 90%;
-        text-align: center;
     }
 
     .search-container input {
-        width: 100%;
-        padding: 8px;
+        width: 140px;
     }
 }
-
 
 
 
