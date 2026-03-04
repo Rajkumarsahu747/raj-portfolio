@@ -1,7 +1,6 @@
-// ===== WAIT UNTIL PAGE LOADS =====
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ===== HAMBURGER MENU =====
+    // ===== HAMBURGER =====
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
 
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ===== SEARCH FUNCTION =====
+    // ===== SEARCH =====
     const searchInput = document.querySelector(".search-container input");
 
     searchInput.addEventListener("keypress", function (event) {
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ===== TYPING ANIMATION =====
+// ===== TYPING EFFECT =====
 const roles = [
     "BCA Student",
     "Frontend Developer",
