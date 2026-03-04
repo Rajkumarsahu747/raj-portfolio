@@ -1,44 +1,27 @@
+document.addEventListener("DOMContentLoaded", function () {
 
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = document.querySelectorAll(".nav-links a");
 
+    // Toggle menu
+    hamburger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle("active");
+    });
 
-// ===== Typing Animation =====
-const roles = [
-    "BCA Student",
-    "Frontend Developer",
-    "Java Programmer",
-    "AI & ML Learner"
-];
-
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-    const currentRole = roles[roleIndex];
-    const typingElement = document.getElementById("typing");
-
-    if (!isDeleting) {
-        typingElement.textContent =
-            currentRole.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentRole.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1000);
-            return;
+    // Close when clicking outside
+    document.addEventListener("click", function (e) {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            navMenu.classList.remove("active");
         }
-    } else {
-        typingElement.textContent =
-            currentRole.substring(0, charIndex - 1);
-        charIndex--;
+    });
 
-        if (charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-        }
-    }
+    // Close and scroll properly when clicking menu item
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+        });
+    });
 
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
-}
-
-typeEffect();
+});
