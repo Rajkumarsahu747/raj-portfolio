@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
-    const navLinks = document.querySelectorAll(".nav-links a");
 
-    // Toggle menu
+    // Open / Close menu
     hamburger.addEventListener("click", function (e) {
         e.stopPropagation();
         navMenu.classList.toggle("active");
@@ -15,13 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
             navMenu.classList.remove("active");
         }
-    });
-
-    // Close and scroll properly when clicking menu item
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            navMenu.classList.remove("active");
-        });
     });
 
 });
