@@ -1,19 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
+// ===== Typing Animation =====
+const roles = [
+    "BCA Student",
+    "Frontend Developer",
+    "Java Programmer",
+    "AI & ML Learner"
+];
 
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("navMenu");
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-    // Open / Close menu
-    hamburger.addEventListener("click", function (e) {
-        e.stopPropagation();
-        navMenu.classList.toggle("active");
-    });
+function typeEffect() {
+    const currentRole = roles[roleIndex];
+    const typingElement = document.getElementById("typing");
 
-    // Close when clicking outside
-    document.addEventListener("click", function (e) {
-        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            navMenu.classList.remove("active");
+    if (!isDeleting) {
+        typingElement.textContent =
+            currentRole.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentRole.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000);
+            return;
         }
-    });
+    } else {
+        typingElement.textContent =
+            currentRole.substring(0, charIndex - 1);
+        charIndex--;
 
-});
+        if (charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+typeEffect();
