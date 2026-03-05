@@ -426,15 +426,9 @@ footer {
         width: 140px;
     }
 }
-
-html {
-    scroll-behavior: smooth;
-}
-
 section {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 100px;
 }
-
 
 
 
