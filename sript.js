@@ -69,34 +69,67 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ===== SEARCH =====
-    const searchInput = document.querySelector(".search-container input");
+    // ===== PORTFOLIO SEARCH =====
 
-    if (searchInput) {
-        searchInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
+const searchInput = document.getElementById("searchInput");
+const suggestions = document.getElementById("suggestions");
 
-                let value = this.value.toLowerCase().trim();
+if (searchInput && suggestions) {
 
-                const sections = {
-                    home: "#home",
-                    about: "#about",
-                    skills: "#skills",
-                    experience: "#experience",
-                    projects: "#projects",
-                    contact: "#contact"
-                };
+    const sections = [
+        { name: "Home", target: "home" },
+        { name: "About", target: "about" },
+        { name: "Skills", target: "skills" },
+        { name: "Projects", target: "projects" },
+        { name: "Experience", target: "experience" },
+        { name: "Contact", target: "contact" },
+        { name: "HTML", target: "skills" },
+        { name: "CSS", target: "skills" },
+        { name: "JavaScript", target: "skills" },
+        { name: "Python", target: "skills" },
+        { name: "AI ML", target: "skills" },
+        { name: "Portfolio Website", target: "projects" },
+        { name: "Fire Smoke AI Detection", target: "projects" }
+    ];
 
-                if (sections[value]) {
-                    document.querySelector(sections[value]).scrollIntoView({
+    searchInput.addEventListener("keyup", function () {
+
+        let value = this.value.toLowerCase();
+        suggestions.innerHTML = "";
+
+        if (value === "") {
+            suggestions.style.display = "none";
+            return;
+        }
+
+        const filtered = sections.filter(item =>
+            item.name.toLowerCase().includes(value)
+        );
+
+        filtered.forEach(item => {
+
+            const li = document.createElement("li");
+            li.textContent = item.name;
+
+            li.addEventListener("click", function () {
+
+                const section = document.getElementById(item.target);
+
+                if (section) {
+                    section.scrollIntoView({
                         behavior: "smooth"
                     });
-                } else {
-                    alert("Section not found!");
                 }
 
-                this.value = "";
-            }
-        });
-    }
+                suggestions.style.display = "none";
+                searchInput.value = "";
+            });
 
-});
+            suggestions.appendChild(li);
+        });
+
+        suggestions.style.display = filtered.length ? "block" : "none";
+
+    });
+
+}
