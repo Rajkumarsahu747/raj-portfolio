@@ -69,67 +69,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ===== SEARCH =====
-    // ===== PORTFOLIO SEARCH =====
+    const searchInput = document.querySelector(".search-container input");
 
-const searchInput = document.getElementById("searchInput");
-const suggestions = document.getElementById("suggestions");
+    if (searchInput) {
+        searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
 
-if (searchInput && suggestions) {
+                let value = this.value.toLowerCase().trim();
 
-    const sections = [
-        { name: "Home", target: "home" },
-        { name: "About", target: "about" },
-        { name: "Skills", target: "skills" },
-        { name: "Projects", target: "projects" },
-        { name: "Experience", target: "experience" },
-        { name: "Contact", target: "contact" },
-        { name: "HTML", target: "skills" },
-        { name: "CSS", target: "skills" },
-        { name: "JavaScript", target: "skills" },
-        { name: "Python", target: "skills" },
-        { name: "AI ML", target: "skills" },
-        { name: "Portfolio Website", target: "projects" },
-        { name: "Fire Smoke AI Detection", target: "projects" }
-    ];
+                const sections = {
+                    home: "#home",
+                    about: "#about",
+                    skills: "#skills",
+                    experience: "#experience",
+                    projects: "#projects",
+                    contact: "#contact"
+                };
 
-    searchInput.addEventListener("keyup", function () {
-
-        let value = this.value.toLowerCase();
-        suggestions.innerHTML = "";
-
-        if (value === "") {
-            suggestions.style.display = "none";
-            return;
-        }
-
-        const filtered = sections.filter(item =>
-            item.name.toLowerCase().includes(value)
-        );
-
-        filtered.forEach(item => {
-
-            const li = document.createElement("li");
-            li.textContent = item.name;
-
-            li.addEventListener("click", function () {
-
-                const section = document.getElementById(item.target);
-
-                if (section) {
-                    section.scrollIntoView({
+                if (sections[value]) {
+                    document.querySelector(sections[value]).scrollIntoView({
                         behavior: "smooth"
                     });
+                } else {
+                    alert("Section not found!");
                 }
 
-                suggestions.style.display = "none";
-                searchInput.value = "";
-            });
-
-            suggestions.appendChild(li);
+                this.value = "";
+            }
         });
+    }
 
-        suggestions.style.display = filtered.length ? "block" : "none";
-
-    });
-
-}
+});
