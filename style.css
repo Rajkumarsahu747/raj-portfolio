@@ -59,34 +59,29 @@ body {
 
 /* Search */
 
-.search-container input{
-    padding:8px 15px;
-    border-radius:20px;
-    border:none;
-    outline:none;
+.search-container{
+position:relative;
 }
-/* Search Suggestions */
+
 #suggestions{
-    position:absolute;
-    background:#111;
-    list-style:none;
-    width:200px;
-    border-radius:8px;
-    margin-top:5px;
-    padding:5px 0;
-    display:none;
+position:absolute;
+top:40px;
+left:0;
+width:200px;
+background:#111;
+border-radius:8px;
+display:none;
+z-index:1000;
 }
 
 #suggestions li{
-    padding:8px 12px;
-    cursor:pointer;
-    color:white;
+padding:8px 12px;
+cursor:pointer;
 }
 
 #suggestions li:hover{
-    background:#8000ff;
+background:#8000ff;
 }
-
 /* ===== HAMBURGER ===== */
 
 .hamburger{
@@ -479,3 +474,4 @@ footer {
     flex-direction: column;
     gap: 15px;
 }
+
