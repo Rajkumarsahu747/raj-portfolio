@@ -100,3 +100,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+
+// contact form
+
+document.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault()
+
+alert("Message sent successfully!")
+
+})
