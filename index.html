@@ -19,7 +19,7 @@
 
     <!-- Search -->
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search here...">
+        <input type="text" id="searchInput" placeholder="Search section...">
         <ul id="suggestions"></ul>
     </div>
 
@@ -113,18 +113,23 @@
 <section id="projects" class="section">
     <h2>Projects</h2>
 
-    <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>Modern animated portfolio built using HTML, CSS and JavaScript.</p>
-        <a href="#" target="_blank" class="btn-small">GitHub</a>
-    </div>
+    <div class="projects-container">
 
-    <div class="project-card">
-        <h3>Fire & Smoke AI Detection</h3>
-        <p>Predictive ML model using Python, Django, AI and Web Techologies.</p>
-        <a href="#" target="_blank" class="btn-small">GitHub</a>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Modern animated portfolio built using HTML, CSS and JavaScript.</p>
+            <a href="#" target="_blank" class="btn-small">GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Fire & Smoke AI Detection</h3>
+            <p>Predictive ML model using Python, Django, AI and Web Technologies.</p>
+            <a href="#" target="_blank" class="btn-small">GitHub</a>
+        </div>
+
     </div>
 </section>
+
 <!-- ================ Experience ================= -->
     <section id="experience" class="section">
   <h2>My Experience</h2>
@@ -155,14 +160,28 @@
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
+
 <section id="contact" class="section">
+
     <h2>Contact Me</h2>
+    
+    <form id="contactForm">
+    
+    <input type="text" placeholder="Your Name" required>
+    
+    <input type="email" placeholder="Your Email" required>
+    
+    <textarea placeholder="Your Message"></textarea>
+    
+    <button type="submit">Send Message</button>
+    
+    </form>
+
     <p>Email: rajkusahu747@gmail.com</p>
     <p>GitHub: https://github.com/Rajkumarsahu747</p>
-    <p>Mob: 7978862642 / 9016735781</p>
-</section>
-
+    <p>Mob: 7978862642 / 9016735781</p> 
+    </section>
 <footer>
    <p>© 2026 My Portfolio</p>
 </footer>
@@ -226,6 +245,6 @@
     });
     
     </script>
+
 </body>
 </html>                                               
-
