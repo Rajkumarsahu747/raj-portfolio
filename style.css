@@ -60,6 +60,9 @@ body {
 /* Search */
 
 .search-container input{
+    flex:1;
+    max-width:350px;
+    margin:0 auto;
     padding:8px 15px;
     border-radius:20px;
     border:none;
@@ -228,6 +231,7 @@ section{
     transform: scale(1.05);
 }
 
+
 /* Download Button */
 .download-btn {
     padding: 14px 30px;
@@ -298,15 +302,14 @@ section{
 .python { width: 80%; background: #ffcc00; }
 
 /* ===== PROJECTS ===== */
-.project-card {
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    transition: 0.4s;
-}
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    max-width:900px;
+    margin:auto;
+    padding-top:20px;
+    }
 
 .project-card:hover {
     transform: translateY(-10px);
@@ -422,9 +425,10 @@ footer {
     }
 
     /* Sections */
-    .section {
-        padding: 70px 20px;
-    }
+    .section{
+        max-width:900px;
+        margin:auto;
+        }
 
     /* Skills */
     .skill {
@@ -445,6 +449,27 @@ footer {
     .timeline-item:nth-child(even) {
         left: 0%;
     }
+
+    form{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        max-width:400px;
+        margin:auto;
+        }
+        
+        input,textarea{
+        padding:10px;
+        border:none;
+        border-radius:5px;
+        }
+        
+        button{
+        padding:10px;
+        background:#ffcc00;
+        border:none;
+        cursor:pointer;
+        }
 
     /* Project Cards */
     .project-card {
