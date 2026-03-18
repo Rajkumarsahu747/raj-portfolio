@@ -81,8 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     home: "#home",
                     about: "#about",
                     skills: "#skills",
-                    experience: "#experience",
                     projects: "#projects",
+                    experience: "#experience",
+                    certification: "certification",
                     contact: "#contact"
                 };
 
@@ -112,3 +113,12 @@ e.preventDefault()
 alert("Message sent successfully!")
 
 })
+
+
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
