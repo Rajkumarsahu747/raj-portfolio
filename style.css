@@ -192,18 +192,18 @@ section{
 @media (max-width: 768px) {
 
     .cert-timeline::after {
-        left: 20px;
+        right: 20px;
     }
 
     .cert-item {
         width: 100%;
-        padding-left: 60px;
-        padding-right: 20px;
-        left: 0 !important;
+        padding-left: 20px;
+        padding-right: 60px;
+        right: 0 !important;
     }
 
     .cert-content {
-        text-align: left;
+        text-align: right;
     }
 }
 /* ===== HERO ===== */
