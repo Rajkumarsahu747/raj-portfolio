@@ -433,7 +433,7 @@ section{
     background: #8000ff;
     top: 0;
     bottom: 0;
-    left: 100%;
+    left: 50%;
     transform: translateX(-50%);
 }
 
