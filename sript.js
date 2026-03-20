@@ -1,4 +1,7 @@
+console.log("JS FILE CONNECTED");
+
 document.addEventListener("DOMContentLoaded", function () {
+
     // ===== TYPING EFFECT =====
     const roles = [
         "BCA Student",
@@ -19,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentRole = roles[roleIndex];
 
         if (!isDeleting) {
-            typingElement.textContent =
-                currentRole.substring(0, charIndex + 1);
+            typingElement.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
 
             if (charIndex === currentRole.length) {
@@ -29,8 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
         } else {
-            typingElement.textContent =
-                currentRole.substring(0, charIndex - 1);
+            typingElement.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
 
             if (charIndex === 0) {
@@ -44,55 +45,78 @@ document.addEventListener("DOMContentLoaded", function () {
 
     typeEffect();
 
-    // ===== HAMBURGER =====
+    // ===== HAMBURGER MENU =====
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
 
     if (hamburger && navMenu) {
 
+        // Toggle menu
         hamburger.addEventListener("click", function (e) {
             e.stopPropagation();
+            hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
         });
 
+        // Close on outside click
         document.addEventListener("click", function (e) {
             if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove("active");
                 navMenu.classList.remove("active");
             }
         });
 
+        // Scroll + close menu
         document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", function () {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute("href"));
+
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+
+                hamburger.classList.remove("active");
                 navMenu.classList.remove("active");
             });
         });
     }
 
-    // ===== SEARCH =====
-    const searchInput = document.querySelector(".search-container input");
+    // ===== SEARCH FUNCTION (FINAL FIX) =====
+    const searchInput = document.getElementById("searchInput");
 
     if (searchInput) {
-        searchInput.addEventListener("keypress", function (event) {
+        searchInput.addEventListener("keydown", function (event) {
+
             if (event.key === "Enter") {
 
                 let value = this.value.toLowerCase().trim();
 
-                const sections = {
-                    home: "#home",
-                    about: "#about",
-                    skills: "#skills",
-                    projects: "#projects",
-                    experience: "#experience",
-                    certification: "certification",
-                    contact: "#contact"
-                };
+                let found = false;
 
-                if (sections[value]) {
-                    document.querySelector(sections[value]).scrollIntoView({
-                        behavior: "smooth"
-                    });
-                } else {
-                    alert("Section not found!");
+                document.querySelectorAll("section").forEach(section => {
+
+                    if (section.innerText.toLowerCase().includes(value)) {
+
+                        section.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                        section.style.outline = "2px solid #8000ff";
+
+                        setTimeout(() => {
+                            section.style.outline = "none";
+                        }, 2000);
+
+                        found = true;
+                    }
+                });
+
+                if (!found) {
+                    alert("No result found!");
                 }
 
                 this.value = "";
@@ -100,25 +124,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-});
+    // ===== CONTACT FORM =====
+    const form = document.getElementById("contactForm");
 
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("✅ Message sent successfully!");
+            form.reset();
+        });
+    }
 
-// contact form
-
-document.getElementById("contactForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault()
-
-alert("Message sent successfully!")
-
-})
-
-
-
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
 });
