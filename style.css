@@ -305,6 +305,8 @@ section{
 .javascript { width: 75%; background: #ffcc00; }
 .aiml { width: 70%; background: #8000ff; }
 .python { width: 80%; background: #ffcc00; }
+.cloudcomputing { width: 55%; background: #8000ff; }
+.cybersecurity{ width: 60%; background: #ffcc00; }
 
 /* ===== PROJECTS ===== */
 .projects-container{
