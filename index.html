@@ -18,9 +18,9 @@
     </div>
 
     <!-- Search -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search section...">
-        <ul id="suggestions"></ul>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search here..." />
+      <button onclick="searchText()">Search</button>
     </div>
 
     <!-- Hamburger -->
@@ -395,6 +395,54 @@
     canvas.height = window.innerHeight;
     init();
   });
+  </script>
+    <script>
+  function removeHighlights() {
+    document.querySelectorAll("mark").forEach(el => {
+      el.replaceWith(el.textContent);
+    });
+  }
+  
+  function searchText() {
+    const input = document.getElementById("searchInput").value.trim();
+    if (!input) return;
+  
+    removeHighlights();
+  
+    const regex = new RegExp(input, "gi");
+    const elements = document.querySelectorAll("p, h1, h2, h3, li, span, a");
+  
+    let firstMatch = null;
+  
+    elements.forEach(el => {
+      if (el.children.length === 0) {
+        const text = el.textContent;
+        if (regex.test(text)) {
+          const newHTML = text.replace(regex, match => `<mark>${match}</mark>`);
+          el.innerHTML = newHTML;
+  
+          if (!firstMatch) {
+            firstMatch = el.querySelector("mark");
+          }
+        }
+      }
+    });
+  
+    if (firstMatch) {
+      // 🔥 FIX: delay scroll to ensure DOM update
+      setTimeout(() => {
+        const yOffset = -100; // adjust if you have fixed navbar
+        const y = firstMatch.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+        window.scrollTo({
+          top: y,
+          behavior: "smooth"
+        });
+      }, 100);
+    } else {
+      alert("No results found");
+    }
+  }
   </script>
 </body>
 </html>                                               
