@@ -255,23 +255,23 @@
     <h2>Contact Me</h2>
     
     <form id="contactForm">
-    
-    <input type="text" placeholder="Your Name" required>
-    
-    <input type="email" placeholder="Your Email" required>
-    
-    <textarea placeholder="Your Message"></textarea>
-    
-    <button type="submit">Send Message</button>
-    
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
 
-    <p>Email: rajkusahu747@gmail.com</p>
-    <p>GitHub: https://github.com/Rajkumarsahu747</p>
-    <p>Mob: 7978862642 / 9016735781</p> 
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/raj-kumar-sahu-752049295/" target="_blank">💼</a>
+      <a href="https://www.instagram.com/razz_kumar070/?__pwa=1" target="_blank">📸</a>
+      <a href="https://www.facebook.com/swagatika.swagatika.5496" target="_blank">📘</a>
+      <a href="https://x.com/rajkusahu747" target="_blank">❌</a>
+      <a href="rajkusahu747@gmail.com">📧</a>
+      <a href="tel:+917978862642">📱</a>
+    </div>
     </section>
 <footer>
-   <p>© 2026 My Portfolio</p>
+   <p>© 2026 R.K.S Portfolio</p>
 </footer>
 <script>
 
@@ -458,6 +458,7 @@
     }
   });
   </script>
+
 <script>
   const searchInput = document.getElementById("searchInput");
   
@@ -466,6 +467,28 @@
     if (this.value.trim() === "") {
       removeHighlights();
     }
+  });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("bBRhmyxh2TM4MON34"); // replace this
+  })();
+</script>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+  
+    emailjs.sendForm("service_3g3sblm", "template_zc6baj7", this)
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+      }, (error) => {
+        alert("Failed to send message");
+        console.log(error);
+      });
   });
   </script>
 </body>
