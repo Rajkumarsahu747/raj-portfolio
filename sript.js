@@ -124,6 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    const container = document.querySelector("body"); // change if needed
+
+container.scrollTo({
+  top: firstMatch.offsetTop - 80,
+  behavior: "smooth"
+});
+
     // ===== CONTACT FORM =====
     const form = document.getElementById("contactForm");
 
