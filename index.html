@@ -273,7 +273,6 @@
 <footer>
    <p>© 2026 My Portfolio</p>
 </footer>
-
 <script>
 
     document.addEventListener("DOMContentLoaded", function(){
@@ -335,8 +334,10 @@
     </script>
 
 <script src="script.js"></script>
-    
+
+
 <canvas id="bgCanvas"></canvas>
+
 <script>
   const canvas = document.getElementById("bgCanvas");
   const ctx = canvas.getContext("2d");
@@ -396,7 +397,12 @@
     init();
   });
   </script>
-    <script>
+<script>
+  document.getElementById("searchForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    searchText();
+  });
+  
   function removeHighlights() {
     document.querySelectorAll("mark").forEach(el => {
       el.replaceWith(el.textContent);
@@ -404,22 +410,22 @@
   }
   
   function searchText() {
-    const input = document.getElementById("searchInput").value.trim();
-    if (!input) return;
+    const keyword = document.getElementById("searchInput").value.trim();
+    if (!keyword) return;
   
     removeHighlights();
   
-    const regex = new RegExp(input, "gi");
-    const elements = document.querySelectorAll("p, h1, h2, h3, li, span, a");
+    const regex = new RegExp(keyword, "gi");
+    const elements = document.querySelectorAll("p, h1, h2, h3, li, span");
   
     let firstMatch = null;
   
     elements.forEach(el => {
       if (el.children.length === 0) {
         const text = el.textContent;
+  
         if (regex.test(text)) {
-          const newHTML = text.replace(regex, match => `<mark>${match}</mark>`);
-          el.innerHTML = newHTML;
+          el.innerHTML = text.replace(regex, match => `<mark>${match}</mark>`);
   
           if (!firstMatch) {
             firstMatch = el.querySelector("mark");
@@ -429,31 +435,28 @@
     });
   
     if (firstMatch) {
-      // 🔥 FIX: delay scroll to ensure DOM update
-      setTimeout(() => {
-        const yOffset = -100; // adjust if you have fixed navbar
-        const y = firstMatch.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      // 🔥 FORCE SCROLL (this works everywhere)
+      const top = firstMatch.getBoundingClientRect().top + window.pageYOffset;
   
-        window.scrollTo({
-          top: y,
-          behavior: "smooth"
-        });
-      }, 100);
+      window.scrollTo({
+        top: top - 80, // adjust for navbar
+        behavior: "smooth"
+      });
     } else {
-      alert("No results found");
+      alert("No result found");
     }
   }
   </script>
 
-    <script>
-const input = document.getElementById("searchInput");
-
-input.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault(); // prevents form reload (important)
-    searchText(); // your existing search function
-  }
-});
-</script>
+<script>
+  const input = document.getElementById("searchInput");
+  
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // prevents form reload (important)
+      searchText(); // your existing search function
+    }
+  });
+  </script>
 </body>
 </html>                                               
