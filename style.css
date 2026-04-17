@@ -622,6 +622,7 @@ footer {
     flex-direction: column;
     gap: 15px;
 }
+
 #bgCanvas {
     position: fixed;
     top: 0;
