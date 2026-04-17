@@ -458,5 +458,15 @@
     }
   });
   </script>
+<script>
+  const searchInput = document.getElementById("searchInput");
+  
+  // Remove highlights when input is cleared
+  searchInput.addEventListener("input", function () {
+    if (this.value.trim() === "") {
+      removeHighlights();
+    }
+  });
+  </script>
 </body>
 </html>                                               
