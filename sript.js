@@ -130,16 +130,4 @@ container.scrollTo({
   top: firstMatch.offsetTop - 80,
   behavior: "smooth"
 });
-
-    // ===== CONTACT FORM =====
-    const form = document.getElementById("contactForm");
-
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("✅ Message sent successfully!");
-            form.reset();
-        });
-    }
-
 });
