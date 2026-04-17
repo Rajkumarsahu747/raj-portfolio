@@ -505,6 +505,27 @@ section {
 #contact p {
     margin: 10px 0;
 }
+.contact-links {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .contact-links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background: #ffffff;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  
+  .contact-links a:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+  }
+  
 
 /* ===== FOOTER ===== */
 footer {
@@ -632,25 +653,3 @@ footer {
     z-index: -1;
     pointer-events: none;
   }
-
-
-  .contact-links {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.contact-links a {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  background: #ffffff;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.contact-links a:hover {
-  background: #ffffff;
-  transform: scale(1.05);
-}
