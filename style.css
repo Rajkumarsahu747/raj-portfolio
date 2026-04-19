@@ -46,6 +46,28 @@ body {
     color: #ffcc00;
 }
 
+
+#imageModal {
+    display: none;          /* ✅ MUST be none initially */
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+  
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Image */
+  #imageModal img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+  }
+
 /* Profile Image */
 .nav-profile-pic {
     width: 45px;
@@ -643,7 +665,6 @@ footer {
     flex-direction: column;
     gap: 15px;
 }
-
 #bgCanvas {
     position: fixed;
     top: 0;
