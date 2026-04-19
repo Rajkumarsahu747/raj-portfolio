@@ -11,11 +11,14 @@
 
 <nav class="navbar">
 
-    <!-- Logo -->
-    <div class="logo">
-        <img src="profile.jpg" class="nav-profile-pic">
-        Raj Kumar
-    </div>
+   <!-- Logo -->
+<div class="logo">
+  <img src="profile.jpg" class="nav-profile-pic" onclick="openImage(this)">
+  Raj Kumar
+</div>
+<div id="imageModal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
 
     <!-- Search -->
     <div class="search-box">
@@ -49,7 +52,7 @@
     <p class="typing-text"><span id="typing"></span></p>
 
     <div class="profile-container">
-        <img src="profile.jpg" class="profile-pic">
+      <img src="profile.jpg" class="profile-pic" onclick="openImage(this)">
     </div>
 
     <a href="resume.pdf" download>
@@ -489,6 +492,25 @@
         alert("Failed to send message");
         console.log(error);
       });
+  });
+  </script>
+
+<script>
+  function openImage(img) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+  
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  }
+  
+  function closeImage() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+  
+  // ESC to close
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeImage();
   });
   </script>
 </body>
