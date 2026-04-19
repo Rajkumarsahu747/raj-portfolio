@@ -273,6 +273,23 @@
       <a href="tel:+917978862642">📱</a>
     </div>
     </section>
+<!-- Chat Toggle Button -->
+<div class="chat-toggle" onclick="toggleChat()">🤖</div>
+
+<!-- Chatbot -->
+<div class="chatbot" id="chatbot">
+  <div class="chat-header">
+    AI Assistant
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chatBody"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask about me..." />
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
 <footer>
    <p>© 2026 R.K.S Portfolio</p>
 </footer>
