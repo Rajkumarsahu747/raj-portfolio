@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<div id="loader">
-  <div class="spinner"></div>
+<div id="intro">
+  <img src="profile.jpg" class="intro-logo">
+  <h1 class="intro-text">Welcome to My World !</h1>
 </div>
-
 <body>
 
 <nav class="navbar">
@@ -622,16 +622,16 @@
 
 <script>
   window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
+    const intro = document.getElementById("intro");
   
     setTimeout(() => {
-      loader.style.opacity = "0";
-      loader.style.transition = "0.5s";
-      
+      intro.style.opacity = "0";
+      intro.style.transition = "0.6s";
+  
       setTimeout(() => {
-        loader.style.display = "none";
-      }, 500);
-    }, 800); // delay for smooth effect
+        intro.style.display = "none";
+      }, 600);
+    }, 1800); // duration of intro
   });
   </script>
 </body>
