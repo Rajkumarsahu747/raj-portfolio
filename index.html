@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>Raj Kumar Sahu | Developer</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 
 <body>
 
@@ -52,8 +57,39 @@
     <p class="typing-text"><span id="typing"></span></p>
 
     <div class="profile-container">
-      <img src="profile.jpg" class="profile-pic" onclick="openImage(this)">
+    <img src="profile.jpg" class="profile-pic" onclick="openImage(this)">
+
+    <!-- Social Icons -->
+    <div class="hero-social">
+        <a href="https://www.linkedin.com/in/raj-kumar-sahu-752049295/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="mailto:rajkusahu747@gmail.com">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="tel:+917978862642">
+            <i class="fas fa-phone"></i>
+        </a>
+
+        <a href="https://github.com/Rajkumarsahu747" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://www.facebook.com/swagatika.swagatika.5496" target="_blank">
+            <i class="fab fa-facebook"></i>
+        </a>
+
+        <a href="https://x.com/rajkusahu747" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+
+        <a href="https://www.instagram.com/razz_kumar070/?__pwa=1" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
     </div>
+</div>
 
     <a href="resume.pdf" download>
         <button class="download-btn">Download Resume</button>
@@ -69,7 +105,23 @@
         using clean and efficient code.
     </p>
 </section>
+<!-- Chat Toggle Button -->
+<div class="chat-toggle" onclick="toggleChat()">🤖</div>
 
+<!-- Chatbot -->
+<div class="chatbot" id="chatbot">
+  <div class="chat-header">
+    AI Assistant
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chatBody"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask about me..." />
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
 <!-- ================= SKILLS ================= -->
 <section id="skills" class="section">
     <h2>Skills</h2>
@@ -263,36 +315,11 @@
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/raj-kumar-sahu-752049295/" target="_blank">💼</a>
-      <a href="https://www.instagram.com/razz_kumar070/?__pwa=1" target="_blank">📸</a>
-      <a href="https://www.facebook.com/swagatika.swagatika.5496" target="_blank">📘</a>
-      <a href="https://x.com/rajkusahu747" target="_blank">❌</a>
-      <a href="rajkusahu747@gmail.com">📧</a>
-      <a href="tel:+917978862642">📱</a>
-    </div>
     </section>
-<!-- Chat Toggle Button -->
-<div class="chat-toggle" onclick="toggleChat()">🤖</div>
-
-<!-- Chatbot -->
-<div class="chatbot" id="chatbot">
-  <div class="chat-header">
-    AI Assistant
-    <span onclick="toggleChat()">✖</span>
-  </div>
-
-  <div class="chat-body" id="chatBody"></div>
-
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Ask about me..." />
-    <button onclick="sendMessage()">➤</button>
-  </div>
-</div>
 <footer>
    <p>© 2026 R.K.S Portfolio</p>
 </footer>
+
 <script>
 
     document.addEventListener("DOMContentLoaded", function(){
@@ -354,8 +381,6 @@
     </script>
 
 <script src="script.js"></script>
-
-
 <canvas id="bgCanvas"></canvas>
 
 <script>
@@ -417,6 +442,7 @@
     init();
   });
   </script>
+
 <script>
   document.getElementById("searchForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -591,6 +617,21 @@
         chatbot.style.display = "none";
       }
     }
+  });
+  </script>
+
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+  
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.transition = "0.5s";
+      
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    }, 800); // delay for smooth effect
   });
   </script>
 </body>
