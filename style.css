@@ -841,7 +841,7 @@ footer {
 
   body {
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 0.1s ease forwards;
 }
 
 @keyframes fadeIn {
