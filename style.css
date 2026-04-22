@@ -800,7 +800,10 @@ body {
     border-radius: 20px;
     font-size: 12px;
   }
-  #liveInfo {
+
+  
+  /* Default (Desktop) */
+#liveInfo {
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -811,15 +814,38 @@ body {
     font-size: 14px;
     backdrop-filter: blur(10px);
     z-index: 9999;
-    min-width: 180px;
   }
   
-  #time {
-    font-weight: bold;
-    margin-bottom: 5px;
+  /* Hide toggle on desktop */
+  #liveToggle {
+    display: none;
   }
   
-  #weather {
-    font-size: 13px;
-    color: #ccc;
+  /* 📱 Mobile Mode */
+  @media (max-width: 600px) {
+  
+    #liveInfo {
+      display: none; /* hidden by default */
+      bottom: 70px;  /* above icon */
+      left: 15px;
+    }
+  
+    #liveInfo.active {
+      display: block;
+    }
+  
+    #liveToggle {
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      left: 15px;
+      background: #8a2be2;
+      color: white;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10000;
+      box-shadow: 0 0 10px rgba(138,43,226,0.6);
+    }
   }
