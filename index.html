@@ -683,6 +683,115 @@
       box.classList.remove("active");
     }
   });
+</script>
+
+
+
+<!-- Chat Toggle Button -->
+<div id="chatToggle">🤖</div>
+
+<!-- Chat Box -->
+<div id="chatBox">
+  <div class="chat-header">AI Assistant ✨</div>
+
+  <div class="chat-body" id="chatBody"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ask about me..." />
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
+
+
+<script>
+  // ===== KNOWLEDGE BASE =====
+  const knowledgeBase = {
+    "who are you": "I am Raj Kumar Sahu, a passionate Web Developer skilled in HTML, CSS, and JavaScript.",
+    
+    "skills": "My skills include HTML, CSS, JavaScript, and building responsive web applications.",
+    
+    "projects": "I have built a portfolio website and other web projects showcasing my skills.",
+    
+    "education": "I have completed my 10th in Odisha, 12th from CHSE, and my highest qualification is BCA.",
+    
+    "experience": "I have around 1-3 years of web development experience gained during my BCA.",
+    
+    "location": "I currently live in Bhubaneswar, and my native place is Sidhapur, Ganjam, Odisha.",
+    
+    "contact": "You can contact me through the contact section, LinkedIn, or email provided in this portfolio.",
+    
+    "hire": "I am open to work and looking for opportunities as a Web Developer.",
+    
+    "hello": "Hello! 👋 How can I help you today?",
+    "hi": "Hi there! 😊 Ask me anything about Raj.",
+  
+    "default": "Sorry, I didn't understand that. Try asking about education, skills, experience, or contact."
+  };
+  
+  
+  // ===== TOGGLE CHAT =====
+  const chatToggle = document.getElementById("chatToggle");
+  const chatBox = document.getElementById("chatBox");
+  const chatBody = document.getElementById("chatBody");
+  
+  chatToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+    chatBox.style.display = "flex";
+  
+    if (chatBody.innerHTML === "") {
+      chatBody.innerHTML += `<div class="bot">${getGreeting()}</div>`;
+    }
+  });
+  
+  // ===== CLOSE ON OUTSIDE CLICK =====
+  document.addEventListener("click", function(e) {
+    if (!chatBox.contains(e.target) && !chatToggle.contains(e.target)) {
+      chatBox.style.display = "none";
+    }
+  });
+  
+  // ===== GREETING =====
+  function getGreeting() {
+    const hour = new Date().getHours();
+  
+    if (hour < 12) return "🌅 Good Morning! Ask me about Raj.";
+    if (hour < 17) return "🌤 Good Afternoon! How can I help?";
+    if (hour < 21) return "🌆 Good Evening! Ask anything.";
+    return "🌙 Good Night! I'm here to help.";
+  }
+  
+  // ===== SEND MESSAGE =====
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const text = input.value.toLowerCase().trim();
+    if (!text) return;
+  
+    chatBody.innerHTML += `<div class="user">${text}</div>`;
+    input.value = "";
+  
+    let reply = knowledgeBase["default"];
+  
+    for (let key in knowledgeBase) {
+      if (text.includes(key)) {
+        reply = knowledgeBase[key];
+        break;
+      }
+    }
+  
+    // Fake typing
+    chatBody.innerHTML += `<div class="bot">Typing...</div>`;
+  
+    setTimeout(() => {
+      document.querySelector(".bot:last-child").remove();
+      chatBody.innerHTML += `<div class="bot">${reply}</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 600);
+  }
+  
+  // ===== ENTER KEY =====
+  document.getElementById("userInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") sendMessage();
+  });
   </script>
 </body>
 </html>                                               
