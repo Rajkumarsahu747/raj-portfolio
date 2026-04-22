@@ -656,6 +656,33 @@
   }
   
   getWeather();
+</script>
+
+<!-- Toggle Icon (Mobile only) -->
+<div id="liveToggle">⏱️</div>
+
+<!-- Live Info Box -->
+<div id="liveInfo">
+  <div id="time"></div>
+  <div id="weather"></div>
+</div>
+
+<script>
+  // Toggle open/close
+  document.getElementById("liveToggle").addEventListener("click", function(e) {
+    e.stopPropagation();
+    document.getElementById("liveInfo").classList.toggle("active");
+  });
+  
+  // Close when clicking outside
+  document.addEventListener("click", function(e) {
+    const box = document.getElementById("liveInfo");
+    const btn = document.getElementById("liveToggle");
+  
+    if (!box.contains(e.target) && !btn.contains(e.target)) {
+      box.classList.remove("active");
+    }
+  });
   </script>
 </body>
 </html>                                               
