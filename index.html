@@ -10,7 +10,7 @@
 
 <div id="intro">
   <img src="profile.jpg" class="intro-logo">
-  <h1 class="intro-text"> Welcome to My World </h1>
+  <h1 class="intro-text">Welcome to My Portfolio !</h1>
 </div>
 <body>
 
@@ -19,7 +19,7 @@
    <!-- Logo -->
 <div class="logo">
   <img src="profile.jpg" class="nav-profile-pic" onclick="openImage(this)">
-  Raj Kumar
+  R.K.S...
 </div>
 <div id="imageModal" onclick="closeImage()">
   <img id="modalImg">
@@ -58,7 +58,8 @@
 
     <div class="profile-container">
     <img src="profile.jpg" class="profile-pic" onclick="openImage(this)">
-
+    <p id="greetingText" class="greeting-text"></p>
+    <span class="status-badge">🟢 Open to Work</span>
     <!-- Social Icons -->
     <div class="hero-social">
         <a href="https://www.linkedin.com/in/raj-kumar-sahu-752049295/" target="_blank">
@@ -633,6 +634,104 @@
       }, 600);
     }, 1800); // duration of intro
   });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const el = document.getElementById("greetingText");
+  
+    // 🔤 Convert country code → flag emoji
+    function getFlagEmoji(countryCode) {
+      return countryCode
+        .toUpperCase()
+        .replace(/./g, char => 
+          String.fromCodePoint(127397 + char.charCodeAt())
+        );
+    }
+  
+    let city = "";
+    let country = "";
+    let flag = "";
+  
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      const data = await res.json();
+  
+      city = data.city;
+      country = data.country_name;
+      flag = getFlagEmoji(data.country_code);
+    } catch (e) {
+      city = "your city";
+      country = "your country";
+      flag = "🌍";
+    }
+  
+    // ⏰ Time greeting
+    const hour = new Date().getHours();
+    let greeting = "";
+  
+    if (hour >= 5 && hour < 12) {
+      greeting = "Good Morning ☀️";
+    } else if (hour >= 12 && hour < 17) {
+      greeting = "Good Afternoon 🌤️";
+    } else if (hour >= 17 && hour < 21) {
+      greeting = "Good Evening 🌆";
+    } else {
+      greeting = "Good Night 🌙";
+    }
+  
+    // 🎯 Final output
+    el.innerText = `${greeting} from ${city}, ${country} ${flag}`;
+  });
+  </script>
+
+<div id="liveInfo">
+  <div id="time"></div>
+  <div id="weather"></div>
+</div>
+
+
+<script>
+  // ⏰ LIVE TIME
+  function updateTime() {
+    const now = new Date();
+  
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+  
+    let ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+  
+    hours = String(hours).padStart(2, '0');
+    minutes = String(minutes).padStart(2, '0');
+    seconds = String(seconds).padStart(2, '0');
+  
+    document.getElementById("time").innerText =
+      `${hours}:${minutes}:${seconds} ${ampm}`;
+  }
+  
+  setInterval(updateTime, 1000);
+  updateTime();
+  
+  
+  // 🌦️ WEATHER (Celsius)
+  async function getWeather() {
+    try {
+      const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=20.2961&longitude=85.8245&current_weather=true");
+      const data = await res.json();
+  
+      const temp = data.current_weather.temperature;
+      const wind = data.current_weather.windspeed;
+  
+      document.getElementById("weather").innerText =
+        `🌡️ ${temp}°C | Wind ${wind} km/h`;
+    } catch (e) {
+      document.getElementById("weather").innerText = "Weather unavailable";
+    }
+  }
+  
+  getWeather();
   </script>
 </body>
 </html>                                               
