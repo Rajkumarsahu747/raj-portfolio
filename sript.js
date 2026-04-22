@@ -131,3 +131,5 @@ container.scrollTo({
   behavior: "smooth"
 });
 });
+
+locationText = "your city";
