@@ -6,7 +6,6 @@
     font-family: 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
 }
-
 /* ===== BODY BACKGROUND ===== */
 body {
     color: white;
@@ -78,24 +77,18 @@ body {
 }
 
 /* Search */
-.search-container input{
-    flex:1;
-    max-width:350px;
-    margin:0 auto;
-    padding:8px 15px;
-    border-radius:20px;
-    border:none;
-    outline:none;
-    position: fixed;
-    boxsizing: border-box
+
+.search-container {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.highlight {
-    background: yellow;
-    color: black;
-    padding: 2px 4px;
-    border-radius: 3px;
-    }
+.search-container input {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
     
 /* Search Suggestions */
 #suggestions{
@@ -208,6 +201,18 @@ section{
 .search-container input{
     width:130px;
 }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search-container input {
+        width: 100%;
+        max-width: none;
+    }
 }
 /* 🔥 FINAL MOBILE FIX FOR CERTIFICATION */
 @media (max-width: 768px) {
