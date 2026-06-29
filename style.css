@@ -78,15 +78,13 @@ body {
 
 /* Search */
 
-.search-container {
-    width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
 .search-container input {
-    width: 100%;
-    max-width: 350px;
+    width: 50%;
+    max-width: 180px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
     box-sizing: border-box;
 }
     
@@ -199,20 +197,8 @@ section{
     width:90%;
 }
 .search-container input{
-    width:130px;
+    width:120px;
 }
-}
-
-@media (max-width: 768px) {
-    .search-container {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .search-container input {
-        width: 100%;
-        max-width: none;
-    }
 }
 /* 🔥 FINAL MOBILE FIX FOR CERTIFICATION */
 @media (max-width: 768px) {
